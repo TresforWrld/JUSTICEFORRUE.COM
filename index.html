@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Fan Tribute to Rue Bennett</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0a0b0f;
+      --panel:#11131a;
+      --panel2:#161925;
+      --text:#f3f4f8;
+      --muted:#a9afbf;
+      --accent:#e50914;
+      --accent2:#7c3aed;
+      --line:rgba(255,255,255,.08);
+      --shadow:0 20px 50px rgba(0,0,0,.45);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:radial-gradient(circle at top, rgba(124,58,237,.16), transparent 30%), linear-gradient(180deg, #08090d 0%, #0a0b0f 100%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
+    a{color:inherit;text-decoration:none}
+    .topbar{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(8,9,13,.78);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+    .nav{max-width:1240px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px}
+    .logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#ff5a65);box-shadow:0 8px 25px rgba(229,9,20,.35)}
+    .navlinks{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:14px}
+    .hero{min-height:92vh;padding:110px 24px 48px;display:flex;align-items:end;position:relative;overflow:hidden}
+    .hero::before{content:"";position:absolute;inset:0;background:url('https://pplx-res.cloudinary.com/image/upload/pplx_search_images/1a60de3b66aefa093f2d72d9eea57410b41653d7.jpg') center/cover no-repeat;filter:grayscale(.15) brightness(.35);transform:scale(1.03)}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(10,11,15,.1) 0%, rgba(10,11,15,.68) 66%, rgba(10,11,15,1) 100%)}
+    .hero-inner{position:relative;z-index:1;max-width:1240px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.25fr .75fr;gap:28px;align-items:end}
+    .eyebrow{display:inline-flex;gap:10px;align-items:center;background:rgba(255,255,255,.08);border:1px solid var(--line);padding:8px 12px;border-radius:999px;color:#fff;font-size:13px;margin-bottom:18px}
+    .eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block;box-shadow:0 0 0 4px rgba(229,9,20,.2)}
+    h1{font-size:clamp(2.6rem,6vw,5.6rem);line-height:.95;margin:0 0 16px;font-weight:800;max-width:10ch}
+    .subtitle{font-size:clamp(1rem,1.6vw,1.25rem);color:#e7e8ee;max-width:62ch;line-height:1.7;margin-bottom:24px}
+    .cta-row{display:flex;flex-wrap:wrap;gap:12px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 18px;border-radius:12px;font-weight:700;border:1px solid var(--line);transition:.25s ease;cursor:pointer}
+    .btn.primary{background:var(--accent);color:#fff;box-shadow:0 12px 30px rgba(229,9,20,.25)}
+    .btn.secondary{background:rgba(255,255,255,.07);color:#fff}
+    .btn:hover{transform:translateY(-2px)}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px;max-width:620px}
+    .stat{background:rgba(17,19,26,.72);backdrop-filter:blur(10px);border:1px solid var(--line);padding:16px;border-radius:18px;box-shadow:var(--shadow)}
+    .stat b{display:block;font-size:1.35rem;margin-bottom:4px}
+    .stat span{color:var(--muted);font-size:.92rem}
+    .hero-card{background:rgba(17,19,26,.78);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:var(--shadow)}
+    .hero-card img{width:100%;height:370px;object-fit:cover;border-radius:16px;border:1px solid var(--line)}
+    .hero-card .cap{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-top:14px;color:var(--muted);font-size:14px}
+    .section{max-width:1240px;margin:0 auto;padding:72px 24px}
+    .section h2{font-size:2rem;margin:0 0 16px}
+    .section p.lead{color:var(--muted);line-height:1.8;max-width:78ch;margin:0 0 28px}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+    .card{background:linear-gradient(180deg, rgba(22,25,37,.96), rgba(17,19,26,.92));border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow)}
+    .card h3{margin:0 0 12px;font-size:1.15rem}
+    .card p, .card li{color:var(--muted);line-height:1.75}
+    .span-7{grid-column:span 7}
+    .span-5{grid-column:span 5}
+    .span-4{grid-column:span 4}
+    .span-6{grid-column:span 6}
+    .quote{font-size:1.15rem;line-height:1.9;color:#fff}
+    .quote em{color:#fff;font-style:normal;border-left:3px solid var(--accent);padding-left:14px;display:block}
+    .image-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .image-strip img{width:100%;height:230px;object-fit:cover;border-radius:18px;border:1px solid var(--line)}
+    .taglist{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    .tag{padding:9px 12px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line);color:#fff;font-size:13px}
+    .footer{border-top:1px solid var(--line);padding:28px 24px 42px;color:var(--muted);text-align:center;max-width:1240px;margin:0 auto 24px}
+    .note{font-size:.95rem;color:#d5d8e3}
+    .disclaimer{background:rgba(229,9,20,.08);border:1px solid rgba(229,9,20,.25)}
+    @media (max-width: 960px){
+      .hero-inner,.grid{grid-template-columns:1fr}
+      .span-7,.span-5,.span-4,.span-6{grid-column:span 12}
+      .image-strip{grid-template-columns:1fr}
+      .stats{grid-template-columns:1fr}
+      h1{max-width:none}
+      .hero{min-height:auto;padding-top:120px}
+      .hero-card img{height:280px}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="nav">
+      <div class="brand"><div class="logo"></div><div>Rue Tribute</div></div>
+      <nav class="navlinks">
+        <a href="#tribute">Tribute</a>
+        <a href="#eulogy">Eulogy</a>
+        <a href="#message">Message</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#disclaimer">Disclaimer</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow"><i></i> Fan-created tribute and protest page</div>
+          <h1>A Fan Tribute to Rue Bennett</h1>
+          <p class="subtitle">Why We Believe Her Story Deserves Hope. This page is an unofficial fan campaign celebrating Rue's journey, her resilience, and the possibility of healing. It is not an official statement from HBO, the creators of Euphoria, or any cast member.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="#message">Read our message</a>
+            <a class="btn secondary" href="#eulogy">Read the eulogy</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><b>#HopeForRue</b><span>Stories of recovery deserve light.</span></div>
+            <div class="stat"><b>#RueDeservesMore</b><span>A hopeful ending matters.</span></div>
+            <div class="stat"><b>#LetRueLive</b><span>Fans speaking with care and respect.</span></div>
+          </div>
+        </div>
+        <aside class="hero-card">
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/dc3400ba842d8356f1f5613dbc2687b6c44c927c.jpg" alt="Rue Bennett from Euphoria" />
+          <div class="cap"><span>Rue Bennett</span><span>Fan tribute aesthetic</span></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="tribute">
+      <h2>Why We Believe Her Story Deserves Hope</h2>
+      <p class="lead">Rue's arc has resonated because it reflects struggle, relapse, accountability, and the hard work of trying again. A hopeful ending would honor the story many viewers connected with: one that does not deny pain, but still makes room for recovery and redemption.</p>
+      <div class="grid">
+        <div class="card span-7">
+          <h3>Why We Are Speaking Out</h3>
+          <ul>
+            <li>Hope after hardship.</li>
+            <li>Recovery from addiction.</li>
+            <li>Personal growth and accountability.</li>
+            <li>The importance of second chances.</li>
+            <li>Mental health awareness.</li>
+            <li>The strength to keep moving forward.</li>
+          </ul>
+          <div class="taglist">
+            <span class="tag">Hope</span>
+            <span class="tag">Recovery</span>
+            <span class="tag">Redemption</span>
+            <span class="tag">Compassion</span>
+            <span class="tag">Second Chances</span>
+          </div>
+        </div>
+        <div class="card span-5" id="message">
+          <h3>Our Message</h3>
+          <p>We respectfully ask the writers and creators to consider the impact Rue's story has had on viewers around the world. This is not a demand—it is a celebration of a character whose journey has inspired millions and a request for a future that reflects the possibility of healing and recovery.</p>
+          <p class="note">Many fans feel that a hopeful conclusion would better honor the themes that made Rue's story so meaningful.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="eulogy">
+      <h2>Eulogy for Rue</h2>
+      <div class="grid">
+        <div class="card span-7 quote">
+          <em>
+            Today, we gather not to celebrate an ending, but to honor a journey.<br><br>
+            Rue Bennett was never just a character. She was a reflection of struggle, pain, resilience, and the difficult reality of addiction. Through her victories and setbacks, she showed us what it means to keep fighting even when the odds seem impossible.<br><br>
+            Rue's story taught us that recovery is not a straight path. It is messy, painful, and often uncertain. Yet despite every obstacle placed before her, she continued moving forward. She inspired countless viewers to feel seen, understood, and less alone in their own battles.<br><br>
+            If her story were to end in tragedy, many of us would feel that an important message would be lost. Rue represented the possibility of growth, healing, and redemption. Her journey reminded us that people are more than their mistakes and that hope can exist even in life's darkest moments.<br><br>
+            This tribute is not simply about a character. It is about the impact she has had on millions of viewers around the world. It is about the belief that stories of recovery deserve the chance to reach the light.<br><br>
+            Thank you, Rue, for your honesty, your courage, and your imperfections. You showed us that being broken does not mean being defeated.<br><br>
+            Your story matters.
+            And for many of us, it is a story that deserves a hopeful future.
+          </em>
+        </div>
+        <div class="card span-5">
+          <h3>What Rue Represents</h3>
+          <p>Rue symbolizes the fragile line between survival and healing. She reflects the reality that recovery can be nonlinear and that compassion matters when people are trying to change.</p>
+          <p>For many viewers, she is proof that flawed people still deserve love, patience, and another chance at life.</p>
+          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/219c629a254c367be3d2287fbff51225e813fbb9.jpg" alt="Emotional Rue close-up" style="width:100%;height:260px;object-fit:cover;border-radius:16px;border:1px solid var(--line);margin-top:10px;" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <h2>Gallery</h2>
+      <p class="lead">A small visual section to match a cinematic streaming-platform feel, using moody stills that fit the tribute's tone.</p>
+      <div class="image-strip">
+        <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/1a60de3b66aefa093f2d72d9eea57410b41653d7.jpg" alt="Rue distressed in a dim room" />
+        <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/dc3400ba842d8356f1f5613dbc2687b6c44c927c.jpg" alt="Rue in a car interior" />
+        <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/795e31a0af7d74ef7e7875c8df07fe21fc6ae6f5.jpg" alt="Rue dramatic green lighting" />
+      </div>
+    </section>
+
+    <section class="section" id="disclaimer">
+      <div class="card disclaimer">
+        <h2>Disclaimer</h2>
+        <p>This website is an unofficial fan project and is not affiliated with HBO, the creators of Euphoria, or any cast members. All characters and related intellectual property belong to their respective owners.</p>
+        <p>This disclaimer helps make the purpose of the page clear and avoids confusion with official sources.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Made as a respectful fan tribute with a cinematic streaming-inspired design.
+  </footer>
+</body>
+</html>
